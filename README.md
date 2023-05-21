@@ -1,7 +1,8 @@
 # Deploy and host a highly-available WordPress application using EC2, RDS, Route 53, Load balancer, ASG, NFS and VPC.
 
-
 We will be hosting a highly available, elastic and self healing wordpress application on a three tier web application.
+
+![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/wordpress_architecture.png)
 
 ## VPC, Private subnets, Nat Gateways
 Our Wordpress application will be deployed into a private Subnet in a Custom VPC. The application instance can't be reached directly from the internet.
