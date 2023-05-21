@@ -1,4 +1,4 @@
-# Deploy and host a highly-available WordPress application using EC2, RDS, Route 53, Load balancer, ASG, NFS and VPC.
+# Deploy and host a highly-available WordPress application using EC2, RDS, Route 53, Load balancer, ASG, EFS and VPC.
 
 We will be hosting a highly available, elastic and self healing wordpress application on a three tier web application.
 
@@ -9,7 +9,7 @@ Our Wordpress application will be deployed into a private Subnet in a Custom VPC
 
 We will configure nat gateways to allow the instance to connect to the internet.
 
-### RDS and NFS
+### RDS and EFS
 To achieve an elastic and highly available wordpress that can scale, we need to use Mysql RDS as our database and use NFS to host our wordpress assets, so if an instance is removed, it wont loose any data.
 
 
