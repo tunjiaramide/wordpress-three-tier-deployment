@@ -15,7 +15,7 @@ Select Available zones, and select the Private Data subnets
 Select Standard Create with MySQL
 ![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/select_mysql.png)
 
-Select Multi-AZ DB Instance to deploy in two available zones
+Select Multi-AZ DB Instance to deploy in two available zones i choose testing
 ![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/choose_multi_az.png)
 
 Name the database - tp-database, set the username - tpwordpress and password - tpwordpressdb123
@@ -31,7 +31,7 @@ Choose TPDataSecurity in VPC Security Groups and click create
 ![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/db_sg.png)
 
 
-## Create NFS
+## Create EFS
 
 Name it TP_NFS and select TP_VPC, choose customize, disable encryption and click Next
 ![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/create_efs.png)
