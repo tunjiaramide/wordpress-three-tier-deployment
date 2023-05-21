@@ -2,7 +2,7 @@
 
 We will be hosting a highly available, elastic and self healing wordpress application on a three tier web application.
 
-![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/wordpress_architecture.png)
+![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/wordpress_archictecture.png)
 
 ## VPC, Private subnets, Nat Gateways
 Our Wordpress application will be deployed into a private Subnet in a Custom VPC. The application instance can't be reached directly from the internet.
