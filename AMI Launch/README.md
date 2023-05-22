@@ -127,6 +127,9 @@ Once AMI is in a created stage you can proceed
 ![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/wordpress_amiready.png)
 
 
+We will update the TPDataSecurity to prevent traffic from the TPWebSecurity on port 3306, so the instance can communicate with the Database only from the TPAppSecurity
+
+
 
 
 
