@@ -4,7 +4,7 @@ We will create a Load Balancer, with target groups and set up Route 53
 
 ## Create Load balancer and target groups
 
-Create Internet facing Application Load balancer and name it TP_LB
+Create Internet facing Application Load balancer and name it TPLoadBalancer
 
 ![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/create_loadbalancer.png)
 

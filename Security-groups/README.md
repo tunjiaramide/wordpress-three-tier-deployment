@@ -4,14 +4,14 @@ We need to create security groups to protect our instances and databases.
 
 ## Create Public Web Security group for the Load balancers, with port 80 open and open to the public
 
-Name it TP Web Security and open port 80 to the internet, this will house the load balancer
+Name it TP Web Security and open HTTP port 80 and NFS port 2049 to the internet, this will house the load balancer
 
 ![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/tp_web_sg.png)
 
 
 ## Create Private App Security group for the Web apps, with port 80 open and only receive traffic from the load balancer
 
-Name it TP App Security and open port 80 only to TP web security, this will protect our wordpress instance and only take traffic from the load balancer.
+Name it TP App Security and open HTTP port 80 and NFS port 2049 only to TP web security, this will protect our wordpress instance and only take traffic from the load balancer.
 
 ![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/tp_app_sg.png)
 
