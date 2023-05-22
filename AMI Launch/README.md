@@ -1,4 +1,4 @@
-# Create Wordpress AMI and Launch Template
+# Create Wordpress AMI
 
 We will create configure a Wordpress instance, install all dependencies, use the RDS, configure the NFS, and update wordpress with the A record we created in Route 53. Then after we will create the AMI and create a Launch template.
 
