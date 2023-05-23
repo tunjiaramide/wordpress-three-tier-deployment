@@ -1,6 +1,6 @@
 # Create a Launch Template
 
-We will create a launch template from the Wordpress AMI created earlier and use it for our auto scaling group which will be launched in the private app subnets
+We will create a launch template from the Wordpress AMI created earlier and use it for our auto scaling group which will be launched in the public subnets
 
 ## Create Launch Template
 
@@ -16,13 +16,11 @@ Select the AMI created earlier, wordpress_ami_starter
 Choose the instance type, t2.micro
 ![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/LT_instance.png)
 
-Under network settings, dont include in template, choose TPAppSecurity 
+Under network settings, dont include in template, choose TPWebSecurity 
 ![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/LT_sg.png)
 
-Under Advanced settings, select our instance role
-![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/LT_role.png)
+Under Advanced settings, select our instance role EC2_EFS and click create
 
-No need for extra user_data, click create
 ![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/LT_success.png)
 
 

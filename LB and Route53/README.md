@@ -31,7 +31,7 @@ Click create load balancer
 
 Register a domain name with AWS or create a hosted zone in Route 53, i have one created, will be creating a record under my hosted zone. 
 
-Will name my hosted zone tutorialpoint.domainname.com, toggle alias and select the load balancer just created. Take note of the A record.
+My hosted zone name is tutorialpoint.domainname.com, toggle alias and select the load balancer just created. Take note of the A record.
 
 ![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/create_arecordRoute.png)
 

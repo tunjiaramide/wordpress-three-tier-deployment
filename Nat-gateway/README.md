@@ -1,6 +1,6 @@
 # Create a NAT Gateway, Private Subnets and Private Routes
 
-We need to create private instances to deploy our EC2 instances and databases inside, so they wont be accessable publicly.
+We need to create private instances to deploy our EFS mount targets and databases inside, so they wont be accessable publicly.
 
 
 ## Create NAT Gateway under Public Web One and Public Web Two and allocate Elastic IP

@@ -2,15 +2,13 @@
 
 We will be hosting a highly available, elastic and self healing wordpress application on a three tier web application.
 
-![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/wordpress_archictecture.png)
+![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/wordpress_archictecture_one.png)
 
-## VPC, Private subnets, Nat Gateways
-Our Wordpress application will be deployed into a private Subnet in a Custom VPC. The application instance can't be reached directly from the internet.
-
-We will configure nat gateways to allow the instance to connect to the internet.
+## VPC, Public subnets, Private subnets and Nat Gateways
+Our Wordpress application will be deployed into a public subnet in a Custom VPC. We will also deploy nat gateways into public subnets, so our database instance in a private subnet access the internet through the nat gateway.
 
 ### RDS and EFS
-To achieve an elastic and highly available wordpress that can scale, we need to use Mysql RDS as our database and use NFS to host our wordpress assets, so if an instance is removed, it wont loose any data.
+To achieve elasticity and highly available wordpress that can scale, we need to use Mysql RDS as our database and use NFS to host our wordpress assets, especially the wp-content folder, so if an instance is removed, it wont loose any data.
 
 
 ### Load balancer, ASG and Route53

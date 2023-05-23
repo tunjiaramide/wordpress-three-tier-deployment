@@ -9,9 +9,9 @@ Under EC2, click to create auto scaling group, name it TP_ASG and select TPWordp
 ![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/ASG_Name.png)
 
 
-Select our TP_VPC and select the Private App One and Private App two subnets and click next
+Select our TP_VPC and select the Public Web One and Public Web two subnets and click next
 
-![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/ASG_Network.png)
+![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/ASG_network.png)
 
 
 Select attach to an existing load balancer and select the TPtargetgroup
@@ -34,11 +34,30 @@ You can add notifications, when there are changes to your instances, for now we 
 ![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/ASG_notification.png)
 
 
+You can tag it with WEBASG and click next
+
+![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/ASG_tag.png)
+
 Click Next
 
 Review and click create
 ![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/ASG_setup.png)
 
+
+## View Launched instances and website usl
+
+Auto Scaling group has launched two instances
+![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/launch_ASG.png)
+
+
+View domain name tutorialpoint.adetunjiaramide.com and create another post to test.
+
+![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/final_domain_two.png)
+
+![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/final_domain.png)
+
+
+![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/final_domain_three.png)
 
 
 

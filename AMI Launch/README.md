@@ -22,7 +22,7 @@ Under advanced details, under IAM instance profile, select EC2_EFS_Role
 
 Scroll down under user data update with the code below
 
-Update the DBName, DBUser, DBPassword, DBHost and EFSID created earlier, and copy to install the code below in the instance
+Update the DBName, DBUser, DBPassword, DBHost created earlier, and copy to install the code below in the instance
 
 ![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/web_userdata.png)
 
@@ -36,7 +36,6 @@ DBName='tpdbwordpress'
 DBUser='tpwordpress'
 DBPassword='tpwordpressdb123'
 DBHost='tp-database.ca9eviv0ckui.us-east-1.rds.amazonaws.com'
-EFSID='fs-0208bfa196d8ac641'
 
 
 # System Updates
@@ -53,14 +52,8 @@ amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2
 systemctl enable httpd
 systemctl start httpd
 
-# STEP 4 - Mount EFS on EC2
-mkdir -p /var/www/html/wp-content
-chown -R ec2-user:apache /var/www/
-echo -e "$EFSID:/ /var/www/html/wp-content efs _netdev,tls,iam 0 0" >> /etc/fstab
-mount -a -t efs defaults
 
-
-# STEP 5 - Install Wordpress
+# STEP 4 - Install Wordpress
 wget http://wordpress.org/latest.tar.gz -P /var/www/html
 cd /var/www/html
 tar -zxvf latest.tar.gz
@@ -68,7 +61,7 @@ cp -rvf wordpress/* .
 rm -R wordpress
 rm latest.tar.gz
 
-# STEP 6 - Configure Wordpress
+# STEP 5 - Configure Wordpress
 cp ./wp-config-sample.php ./wp-config.php
 sed -i "s/'database_name_here'/'$DBName'/g" wp-config.php
 sed -i "s/'username_here'/'$DBUser'/g" wp-config.php
@@ -76,7 +69,7 @@ sed -i "s/'password_here'/'$DBPassword'/g" wp-config.php
 sed -i "s/'localhost'/'$DBHost'/g" wp-config.php
 sed -i "/<?php/a define('FS_METHOD', 'direct');" wp-config.php
 
-# Step 6a - permissions 
+# Step 5a - permissions 
 usermod -a -G apache ec2-user   
 chown -R ec2-user:apache /var/www
 chmod 2775 /var/www
@@ -86,36 +79,58 @@ find /var/www -type f -exec chmod 0664 {} \;
 
 ```
 
-We will update the TPDataSecurity to temporarily allow traffic from the TPWebSecurity on port 3306, so the instance can communicate with the Database while we create this AMI.
-
-![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/edit_datasg.png)
-
-
-## Instance wordpress and update site url with A record
+## Test worpdress 
+Test wordpress to see if all working perfectly fine
 
 Log on to the Public IP, set username and password to login
 
-![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/wordpress_install.png)
+![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/web_connect.png)
 
-![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/wordpress_admin.png)
+![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/web_install.png)
+
+![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/web_admin.png)
 
 
 Create a post
 
-![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/wordpress_createpost.png)
+![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/web_post.png)
 
-![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/wordpress_postsuccess.png)
+![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/web_post_one.png)
+
+
+## Mount the EFS and move the WP-content to EFS
+
+Connect into the wordpress_ami instance using session manager
+
+![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/web_session.png)
+
+```
+# Mount EFS on EC2
+
+sudo su
+cd /var/www/html
+mv wp-content/ /tmp
+mkdir wp-content
+echo -e "fs-066451aea37c2b712:/ /var/www/html/wp-content efs _netdev,tls,iam 0 0" >> /etc/fstab
+mount -a -t efs defaults
+mv /tmp/wp-content/* /var/www/html/wp-content/
+chown -R ec2-user:apache /var/www/
+```
+
+![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/web_efs_install.png)
+
+## Update site url with A record
 
 Once logged in, go to general settings in Wordpress and update the site url to the A record earlier created - tutorialpoint.adetunjiaramide.com
 
-![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/wordpress_siteurl.png)
+![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/web_siteurl.png)
 
 After clicking update, website will show Temporarily unavailable, that is fine, because we have not added our instances to the load balancer, which is linked to the domain name.
 
 ![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/wordpress_unavailable.png)
 
 Go back to the instance, and click instance state > stop
-![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/wordpress_stop.png)
+![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/stop_instance.png)
 
 After in a stopped state, click Actions > Image and templates > Create image
 ![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/wordpress_createami.png)
@@ -127,7 +142,6 @@ Once AMI is in a created stage you can proceed
 ![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/wordpress_amiready.png)
 
 
-We will update the TPDataSecurity to prevent traffic from the TPWebSecurity on port 3306, so the instance can communicate with the Database only from the TPAppSecurity
 
 
 
