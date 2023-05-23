@@ -1,6 +1,6 @@
 # Create Wordpress AMI
 
-We will create configure a Wordpress instance, install all dependencies, use the RDS, configure the NFS, and update wordpress with the A record we created in Route 53. Then after we will create the AMI and create a Launch template.
+We will configure a Wordpress instance, install all dependencies, use the RDS, configure the NFS, and update wordpress with the A record we created in Route 53. Then after we will create the AMI and create a Launch template.
 
 ## Launch EC2 in public subnet to use to configure AMI
 
@@ -24,7 +24,7 @@ Scroll down under user data update with the code below
 
 Update the DBName, DBUser, DBPassword, DBHost created earlier, and copy to install the code below in the instance
 
-![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/web_userdata.png)
+![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/web_userdata_one.png)
 
 ```
 #!/bin/bash -xe

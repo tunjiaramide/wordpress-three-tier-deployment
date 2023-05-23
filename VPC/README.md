@@ -1,4 +1,4 @@
-# Set up a Custom VPC, Internet Gateways, Public Subnets and Public Route table
+# Set up a Custom VPC, Internet Gateway, Public Subnets and Public Route table
 
 In order to successfully deploy our highly available wordpress application, we will be setting up a custom VPC in us-east-1. Create and attach an Internet Gateway to the VPC, then set up two public subnets in two available zones, and attach it to a public route.
 

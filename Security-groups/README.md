@@ -16,9 +16,9 @@ Name it TPAppSecurity and open NFS port 2049 only to TPWebSecurity, this will pr
 
 ![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/tp_appsg.png)
 
-## Create Private Data Security group for the Web apps, with port 3306 open and only receive traffic from the Private App Security Group.
+## Create Private Data Security group for the Web apps, with port 3306 open and only receive traffic from the Public Web Security Group.
 
-Name it TPDataSecurity and open port 3306 only to TPWebSecurity, this will protect our database instance and only take traffic from wordpress instance.
+Name it TPDataSecurity and open port 3306 only to TPWebSecurity, this will protect our database instance and only take traffic from the wordpress instance.
 
 ![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/three-tier-wordpress/tp_datasg.png)
 
