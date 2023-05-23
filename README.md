@@ -21,12 +21,12 @@ As a final step, to access our website from a custom domain name, we will use Ro
 
 ### STEPS TO FOLLOW
 
-[IAM](https://github.com/tunjiaramide/wordpress-three-tier-deployment/tree/main/IAM)
-[VPC](https://github.com/tunjiaramide/wordpress-three-tier-deployment/tree/main/VPC)
-[NAT GATEWAY](https://github.com/tunjiaramide/wordpress-three-tier-deployment/tree/main/Nat-gateway)
-[SECURITY GROUPS](https://github.com/tunjiaramide/wordpress-three-tier-deployment/tree/main/Security-groups)
-[DB AND EFS](https://github.com/tunjiaramide/wordpress-three-tier-deployment/tree/main/DB%20and%20EFS)
-[LB AND ROUTE53](https://github.com/tunjiaramide/wordpress-three-tier-deployment/tree/main/LB%20and%20Route53)
-[AMI LAUNCH](https://github.com/tunjiaramide/wordpress-three-tier-deployment/tree/main/AMI%20Launch)
-[LAUNCH TEMPLATE](https://github.com/tunjiaramide/wordpress-three-tier-deployment/tree/main/Launch%20Template)
-[AUTO SCALING GROUP](https://github.com/tunjiaramide/wordpress-three-tier-deployment/tree/main/Auto%20Scaling%20Group)
+#### [IAM](https://github.com/tunjiaramide/wordpress-three-tier-deployment/tree/main/IAM)
+#### [VPC](https://github.com/tunjiaramide/wordpress-three-tier-deployment/tree/main/VPC)
+#### [NAT GATEWAY](https://github.com/tunjiaramide/wordpress-three-tier-deployment/tree/main/Nat-gateway)
+#### [SECURITY GROUPS](https://github.com/tunjiaramide/wordpress-three-tier-deployment/tree/main/Security-groups)
+#### [DB AND EFS](https://github.com/tunjiaramide/wordpress-three-tier-deployment/tree/main/DB%20and%20EFS)
+#### [LB AND ROUTE53](https://github.com/tunjiaramide/wordpress-three-tier-deployment/tree/main/LB%20and%20Route53)
+#### [AMI LAUNCH](https://github.com/tunjiaramide/wordpress-three-tier-deployment/tree/main/AMI%20Launch)
+#### [LAUNCH TEMPLATE](https://github.com/tunjiaramide/wordpress-three-tier-deployment/tree/main/Launch%20Template)
+#### [AUTO SCALING GROUP](https://github.com/tunjiaramide/wordpress-three-tier-deployment/tree/main/Auto%20Scaling%20Group)
